@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://61olhapbrtpy"]
+
+[ext_resource type="Script" uid="uid://ciipoh17ymtu2" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Texture2D" uid="uid://dduisb5bdxmjf" path="res://assets/player.png" id="2_rkbax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yw30f"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
+size = Vector2(25, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1dw6"]
+size = Vector2(24, 9)
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_rkbax")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5.96046e-07, -5.96046e-07)
+scale = Vector2(4, 4)
+texture = ExtResource("2_rkbax")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yw30f")
+
+[node name="teleport_box" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleport_box"]
+position = Vector2(0, -80)
+shape = SubResource("RectangleShape2D_rkbax")
+
+[node name="interact_box" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact_box"]
+position = Vector2(0, -16.5)
+shape = SubResource("RectangleShape2D_g1dw6")
+
+[connection signal="body_entered" from="teleport_box" to="." method="_teleport_area_body_entered"]
+[connection signal="body_exited" from="teleport_box" to="." method="_teleport_area_body_exited"]
