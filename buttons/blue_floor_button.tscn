@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlsbm8j8m82sf"]
+
+[ext_resource type="Script" uid="uid://dtungaxdyh1ae" path="res://buttons/blue_floor_button.gd" id="1_xl4ou"]
+[ext_resource type="Texture2D" uid="uid://cncmcfl3luev0" path="res://assets/blue-floor-button.png" id="2_xl4ou"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xl4ou"]
+size = Vector2(4, 4)
+
+[node name="blue_floor_button" type="Area2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_xl4ou")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xl4ou")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.96046e-08, 8.34465e-08)
+shape = SubResource("RectangleShape2D_xl4ou")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
