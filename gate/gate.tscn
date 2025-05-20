@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjbai8tseys8f"]
+
+[ext_resource type="Texture2D" uid="uid://vbav1e3wtv4j" path="res://assets/gate.png" id="1_nywdg"]
+[ext_resource type="Script" uid="uid://pg7v1acn0wlv" path="res://gate/gate.gd" id="2_fxaa1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cjye"]
+size = Vector2(30, 30)
+
+[node name="gate" type="StaticBody2D"]
+script = ExtResource("2_fxaa1")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_nywdg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3cjye")
