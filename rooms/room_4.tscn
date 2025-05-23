@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://bc4r5n48ua7lj"]
+[gd_scene load_steps=9 format=4 uid="uid://bc4r5n48ua7lj"]
 
 [ext_resource type="PackedScene" uid="uid://rkildea1qlbc" path="res://tilemap/tile_map_layer.tscn" id="1_kjedn"]
-[ext_resource type="PackedScene" uid="uid://61olhapbrtpy" path="res://player/player.tscn" id="4_ocw8c"]
 [ext_resource type="PackedScene" uid="uid://bjbai8tseys8f" path="res://gate/gate.tscn" id="5_w76ad"]
 [ext_resource type="Script" uid="uid://b1kdpjc2y7wwn" path="res://camera/camera_2d.gd" id="6_5esk3"]
 [ext_resource type="PackedScene" uid="uid://wdkglq82y5cw" path="res://buttons/red_floor_button.tscn" id="6_gvucy"]
@@ -31,12 +30,15 @@ position = Vector2(94, 137)
 [node name="brick4" parent="." instance=ExtResource("6_w76ad")]
 position = Vector2(124, 542)
 
+[node name="brick5" parent="." instance=ExtResource("6_w76ad")]
+position = Vector2(736, 299)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(400, 320)
 script = ExtResource("6_5esk3")
 
 [node name="northEntrance" type="Area2D" parent="."]
-position = Vector2(679, 21)
+position = Vector2(675, 20)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="northEntrance"]
@@ -81,13 +83,9 @@ position = Vector2(654, 501)
 [node name="gate4" parent="." instance=ExtResource("5_w76ad")]
 position = Vector2(181, 579)
 and_buttons = Array[NodePath]([NodePath("../blue_floor_button6")])
-or_buttons = Array[NodePath]([NodePath("../red_floor_button3")])
 
 [node name="blue_floor_button6" parent="." instance=ExtResource("6_uexgq")]
 position = Vector2(69, 439)
-
-[node name="red_floor_button3" parent="." instance=ExtResource("6_gvucy")]
-position = Vector2(70, 544)
 
 [node name="gate5" parent="." instance=ExtResource("5_w76ad")]
 position = Vector2(384, 219)
@@ -98,9 +96,6 @@ position = Vector2(321, 73)
 
 [node name="blue_floor_button4" parent="." instance=ExtResource("6_uexgq")]
 position = Vector2(323, 157)
-
-[node name="player" parent="." instance=ExtResource("4_ocw8c")]
-position = Vector2(779, 368)
 
 [connection signal="body_entered" from="northEntrance" to="Camera2D" method="make_camera_current"]
 [connection signal="body_entered" from="eastEntrance" to="Camera2D" method="make_camera_current"]

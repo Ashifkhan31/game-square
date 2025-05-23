@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://bvryicewqna3x"]
+
+[ext_resource type="Script" uid="uid://de3twgiq1yg7u" path="res://buttons/blue_wall_button.gd" id="1_yay4l"]
+[ext_resource type="Texture2D" uid="uid://c4jaysobdea84" path="res://assets/blue-wall-button-sheet.png" id="2_coomx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deqfc"]
+atlas = ExtResource("2_coomx")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxggd"]
+atlas = ExtResource("2_coomx")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04gnq"]
+atlas = ExtResource("2_coomx")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1ust"]
+atlas = ExtResource("2_coomx")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7qd2c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deqfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxggd")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04gnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1ust")
+}],
+"loop": false,
+"name": &"unpressed",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jlgt"]
+size = Vector2(10, 30)
+
+[node name="blue_wall_button" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_yay4l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_7qd2c")
+animation = &"pressed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-15, 0)
+shape = SubResource("RectangleShape2D_6jlgt")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

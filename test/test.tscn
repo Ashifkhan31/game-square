@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6j3d7iynlkt2"]
+[gd_scene load_steps=9 format=3 uid="uid://b6j3d7iynlkt2"]
 
 [ext_resource type="PackedScene" uid="uid://c5qk3e4sae1vv" path="res://rooms/room_2.tscn" id="1_8a8pi"]
 [ext_resource type="PackedScene" uid="uid://lnfk1faqvynk" path="res://rooms/room_3.tscn" id="2_65205"]
 [ext_resource type="PackedScene" uid="uid://61olhapbrtpy" path="res://player/player.tscn" id="3_65205"]
 [ext_resource type="PackedScene" uid="uid://c7eucynqsh0i1" path="res://rooms/room_1.tscn" id="4_hrq6i"]
 [ext_resource type="PackedScene" uid="uid://bc4r5n48ua7lj" path="res://rooms/room_4.tscn" id="4_tbfq4"]
+[ext_resource type="PackedScene" uid="uid://dbe8vfhlrq38r" path="res://rooms/room_5.tscn" id="5_aeque"]
 
 [sub_resource type="Shader" id="Shader_65205"]
 code = "shader_type canvas_item;
@@ -39,6 +40,9 @@ position = Vector2(800, 0)
 
 [node name="room-4" parent="." instance=ExtResource("4_tbfq4")]
 position = Vector2(-800, 0)
+
+[node name="room-5" parent="." instance=ExtResource("5_aeque")]
+position = Vector2(-800, -640)
 
 [node name="player" parent="." instance=ExtResource("3_65205")]
 position = Vector2(397, 1082)

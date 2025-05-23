@@ -5,11 +5,13 @@ class_name player
 @onready var teleport_box = $teleport_box
 @onready var interact_box = $interact_box
 
+var bullet_scene = preload("res://bullet/bullet.tscn")
 var invincible = false
 var invincible_timer: Timer
 var lives = 3
 var speed = 235
 var prev_dir: Vector2 = Vector2.UP
+var fourway_prev_dir: Vector2 = Vector2.UP
 var holding = false
 var reachable_items: Array
 var held_item
@@ -32,7 +34,10 @@ func finite_state_machine():
 	if input_dir != Vector2.ZERO:
 		prev_dir = input_dir
 		velocity = speed * input_dir
-		
+	
+	if prev_dir == Vector2.RIGHT or prev_dir == Vector2.LEFT or prev_dir == Vector2.UP or prev_dir == Vector2.DOWN:
+		fourway_prev_dir = prev_dir
+	
 		match input_dir:
 			Vector2.RIGHT:
 				teleport_box.transform = Transform2D(Vector2.UP,-input_dir,teleport_box.position)
@@ -68,7 +73,11 @@ func finite_state_machine():
 		held_item.reparent(get_tree().root)
 	
 	if Input.is_action_just_pressed("shoot") and not holding:
-		pass
+		var instance = bullet_scene.instantiate()
+		instance.dir = fourway_prev_dir
+		instance.global_position = global_position
+		get_tree().root.add_child(instance)
+		
 #---ETC---
 	if Input.is_action_just_pressed("teleport"):
 		if bodies_in_teleport_area.is_empty():
