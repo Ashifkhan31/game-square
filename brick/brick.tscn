@@ -12,7 +12,6 @@ script = ExtResource("1_84gwy")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5p85m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

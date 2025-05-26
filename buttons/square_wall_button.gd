@@ -1,5 +1,7 @@
 extends Area2D
 
+
+@export var wait_time:float= 0.5
 var pressing_objects:Array
 var timer: Timer
 var pressed = false
@@ -9,7 +11,7 @@ func _ready() -> void:
 	add_child(timer)
 	timer.autostart = false
 	timer.one_shot = true
-	timer.wait_time = 0.5
+	timer.wait_time = wait_time
 	timer.connect("timeout", unpress)
 
 func _on_body_entered(body: Node2D) -> void:

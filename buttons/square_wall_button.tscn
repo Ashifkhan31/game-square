@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bvryicewqna3x"]
 
-[ext_resource type="Script" uid="uid://de3twgiq1yg7u" path="res://buttons/blue_wall_button.gd" id="1_yay4l"]
+[ext_resource type="Script" uid="uid://de3twgiq1yg7u" path="res://buttons/square_wall_button.gd" id="1_yay4l"]
 [ext_resource type="Texture2D" uid="uid://c4jaysobdea84" path="res://assets/blue-wall-button-sheet.png" id="2_coomx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_deqfc"]
@@ -47,7 +47,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6jlgt"]
 size = Vector2(10, 30)
 
-[node name="blue_wall_button" type="Area2D"]
+[node name="square_wall_button" type="Area2D"]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_yay4l")
