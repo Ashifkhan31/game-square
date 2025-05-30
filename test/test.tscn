@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://c5qk3e4sae1vv" path="res://rooms/room_2.tscn" id="1_8a8pi"]
 [ext_resource type="PackedScene" uid="uid://rkildea1qlbc" path="res://tilemap/tile_map_layer.tscn" id="1_v2t6q"]
 [ext_resource type="PackedScene" uid="uid://lnfk1faqvynk" path="res://rooms/room_3.tscn" id="2_65205"]
-[ext_resource type="PackedScene" uid="uid://61olhapbrtpy" path="res://player/player.tscn" id="3_65205"]
 [ext_resource type="PackedScene" uid="uid://c7eucynqsh0i1" path="res://rooms/room_1.tscn" id="4_hrq6i"]
 [ext_resource type="PackedScene" uid="uid://dbe8vfhlrq38r" path="res://rooms/room_5.tscn" id="5_aeque"]
 [ext_resource type="PackedScene" uid="uid://bvxbywwc8juhh" path="res://rooms/room_4.tscn" id="5_v2t6q"]
@@ -11,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://npa5ygsbba3q" path="res://rooms/room_8.tscn" id="8_5jhup"]
 [ext_resource type="PackedScene" uid="uid://digkh7ifsfo8e" path="res://rooms/room_7.tscn" id="8_ibfm0"]
 [ext_resource type="PackedScene" uid="uid://dkl0ith76apgk" path="res://rooms/room_9.tscn" id="9_v2t6q"]
+[ext_resource type="PackedScene" uid="uid://k42toh85ydws" path="res://player/player.tscn" id="11_v2t6q"]
 
 [sub_resource type="Shader" id="Shader_65205"]
 code = "shader_type canvas_item;
@@ -64,5 +64,5 @@ position = Vector2(1600, -640)
 [node name="room-9" parent="." instance=ExtResource("9_v2t6q")]
 position = Vector2(1600, -1280)
 
-[node name="player" parent="." instance=ExtResource("3_65205")]
-position = Vector2(397, 1082)
+[node name="player" parent="." instance=ExtResource("11_v2t6q")]
+position = Vector2(399, 1001)

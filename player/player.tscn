@@ -1,15 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://61olhapbrtpy"]
+[gd_scene load_steps=9 format=3 uid="uid://k42toh85ydws"]
 
-[ext_resource type="Script" uid="uid://ciipoh17ymtu2" path="res://player/player.gd" id="1_rkbax"]
-[ext_resource type="Texture2D" uid="uid://dduisb5bdxmjf" path="res://assets/player.png" id="2_rkbax"]
+[ext_resource type="Texture2D" uid="uid://dduisb5bdxmjf" path="res://assets/player.png" id="1_636jk"]
+[ext_resource type="Script" uid="uid://b351ngepgjwrs" path="res://player/player.gd" id="1_by6f8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yw30f"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_by6f8"]
 size = Vector2(24, 24)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwluo"]
 size = Vector2(25, 25)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1dw6"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5ucr"]
 size = Vector2(24, 15)
 
 [sub_resource type="Animation" id="Animation_g1dw6"]
@@ -50,35 +50,35 @@ _data = {
 }
 
 [node name="player" type="CharacterBody2D"]
-script = ExtResource("1_rkbax")
+script = ExtResource("1_by6f8")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-5.96046e-07, -5.96046e-07)
 scale = Vector2(4, 4)
-texture = ExtResource("2_rkbax")
+texture = ExtResource("1_636jk")
 
 [node name="collision" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_yw30f")
+shape = SubResource("RectangleShape2D_by6f8")
 
 [node name="teleport_box" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleport_box"]
-position = Vector2(0, -80)
-shape = SubResource("RectangleShape2D_rkbax")
+position = Vector2(0, 80)
+shape = SubResource("RectangleShape2D_gwluo")
 
 [node name="interact_box" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interact_box"]
-position = Vector2(0, -19.5)
-shape = SubResource("RectangleShape2D_g1dw6")
+position = Vector2(0, 19.5)
+shape = SubResource("RectangleShape2D_b5ucr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_yw30f")
 }
 
-[connection signal="body_entered" from="teleport_box" to="." method="_teleport_area_body_entered"]
-[connection signal="body_exited" from="teleport_box" to="." method="_teleport_area_body_exited"]
+[connection signal="body_entered" from="teleport_box" to="." method="_on_teleport_box_body_entered"]
+[connection signal="body_exited" from="teleport_box" to="." method="_on_teleport_box_body_exited"]
 [connection signal="area_entered" from="interact_box" to="." method="_on_interact_box_area_entered"]
 [connection signal="area_exited" from="interact_box" to="." method="_on_interact_box_area_exited"]
