@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://npa5ygsbba3q"]
+[gd_scene load_steps=4 format=4 uid="uid://npa5ygsbba3q"]
 
 [ext_resource type="PackedScene" uid="uid://rkildea1qlbc" path="res://tilemap/tile_map_layer.tscn" id="1_p2tqh"]
 [ext_resource type="PackedScene" uid="uid://c2bdsgojavyyu" path="res://camera/camera.tscn" id="2_fgymh"]
+[ext_resource type="PackedScene" uid="uid://cn0bntkp54til" path="res://trash_pile/trash_pile.tscn" id="3_cx0od"]
 
 [node name="room-8" type="Node2D"]
 
@@ -10,3 +11,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAARAAEAAAATAAAAAAARAAEAAAATAA8AAAARAAE
 
 [node name="Camera2D" parent="." instance=ExtResource("2_fgymh")]
 position = Vector2(400, 320)
+
+[node name="trash-pile" parent="." instance=ExtResource("3_cx0od")]
+position = Vector2(499, 401)
+filepath = "res://trash_pile/trash_pile_dialog.json"

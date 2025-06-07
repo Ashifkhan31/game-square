@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dafr6h73f38d0"]
+[gd_scene load_steps=2 format=3 uid="uid://dafr6h73f38d0"]
 
 [ext_resource type="Script" uid="uid://cwfl62ql8t7yj" path="res://dialog-box/dialog_box.gd" id="1_vb74j"]
-[ext_resource type="Texture2D" uid="uid://cnmgd3ycb5djy" path="res://assets/profile.webp" id="2_5pewv"]
 
 [node name="dialog-box" type="Control"]
 layout_mode = 3
@@ -12,17 +11,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vb74j")
 
-[node name="background" type="TextureRect" parent="."]
-self_modulate = Color(0, 0, 0, 1)
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
 anchor_right = 1.0
-offset_bottom = 170.0
+anchor_bottom = 0.206
+offset_bottom = 0.159988
 grow_horizontal = 2
-texture = ExtResource("2_5pewv")
-expand_mode = 1
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="background"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,48 +29,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="background/HBoxContainer"]
-custom_minimum_size = Vector2(199, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 10
-
-[node name="speaker-picture" type="TextureRect" parent="background/HBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(139, 0)
-layout_mode = 2
-texture = ExtResource("2_5pewv")
-expand_mode = 5
-
-[node name="MarginContainer2" type="MarginContainer" parent="background/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 10
 
-[node name="text-section" type="RichTextLabel" parent="background/HBoxContainer/MarginContainer2"]
+[node name="text-section" type="RichTextLabel" parent="ColorRect/HBoxContainer/MarginContainer2"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 26
-text = "csnwqond csnwqond qond csnwqo snwqond csnwqond csnwqond csnwqond csnwqond csnwqond 
-csnwqond csnwqonond qond csnwqond csnwqonwqond csnwqcsnwqond csnwqond csnwqond csnwqond 
-csnond csnwqnd csnwqond csnwqond csnnd csnwqond csnwqond csnwqond csnwqond csnond 
-csnwqond csnwqond c csnwqoond csnwqosnwqowqond csnwqond csnwqond csnwqond csnwqond csnwqond 
-csnwqond csnwqond csnwqond csnwcsnwd cqsnwqond csnwqond csnwqond csnwqond csnwqond csnwq
-csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond 
-csnwqond csnwqond csnwqond csnwqond csnwd cqowqond csnwqond csnwqond csnwqond csnwqond 
-csnwqond d csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond 
-csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond csnwqod csnwqond csnwqond 
-csnwqond cond csnwqd csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond cqond csnwqond csnwqond csnwqond qond csnwqo snwqond csnwqond csnwqond csnwqond csnwqond csnwqond 
-csnwqond csnwqonond qond csnwqond csnwqonwqond csnwqcsnwqond csnwqond csnwqond csnwqond 
-csnond csnwqnd csnwqond csnwqond csnnd csnwqond csnwqond csnwqond csnwqond csnond 
-csnwqond csnwqond c csnwqoond csnwqosnwqowqond csnwqond csnwqond csnwqond csnwqond csnwqond 
-csnwqond csnwqond csnwqond csnwcsnwd cqsnwqond csnwqond csnwqond csnwqond csnwqond csnwq
-csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond 
-csnwqond csnwqond csnwqond csnwqond csnwd cqowqond csnwqond csnwqond csnwqond csnwqond 
-csnwqond d csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond 
-csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond csnwqod csnwqond csnwqond 
-csnwqond cond csnwqd csnwqond csnwqond csnwqond csnwqond csnwqond csnwqond cqond csnwqond "
 scroll_active = false
 visible_characters_behavior = 1

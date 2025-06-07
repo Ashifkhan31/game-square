@@ -16,7 +16,12 @@ var actionState = interactState
 
 var bodies_in_teleport_area: Array
 var reachable_items: Array
+var reachable_interactables: Array
 var held_item = null
+var player_restrict = false
+
+var shooting_bool = false
+var teleport_bool = false 
 
 var invincible = false
 var invincible_timer: Timer
@@ -33,6 +38,7 @@ enum
 	holdingState,
 	shootingState,
 	interactState,
+	nullstate
 }
 
 func _ready() -> void:
@@ -59,6 +65,9 @@ func _physics_process(delta: float) -> void:
 
 func movement_FSM():
 	match movementState:
+		nullstate:
+			if player_restrict == false:
+				movementState = idleState
 		idleState:
 			
 			#region state code
@@ -66,9 +75,11 @@ func movement_FSM():
 			#endregion
 			
 			#region transition code
+			if player_restrict == true:
+				movementState = nullstate
 			if Input.get_vector("left","right","up","down") != Vector2.ZERO:
 					movementState = walkingState
-			elif Input.is_action_just_pressed("teleport"):
+			elif Input.is_action_just_pressed("teleport") and teleport_bool:
 				movementState = teleportingState
 			#endregion 
 		
@@ -91,9 +102,11 @@ func movement_FSM():
 			#endregion
 			
 			#region transition code
-			if input_direction == Vector2.ZERO:
+			if player_restrict == true:
+				movementState = nullstate
+			elif input_direction == Vector2.ZERO:
 				movementState = idleState
-			elif Input.is_action_just_pressed("teleport"):
+			elif Input.is_action_just_pressed("teleport") and teleport_bool:
 				movementState = teleportingState
 			#endregion
 		
@@ -109,6 +122,9 @@ func movement_FSM():
 
 func action_FSM():
 	match actionState:
+		nullstate:
+			if player_restrict == false:
+				actionState = interactState
 		interactState:
 			# no state code
 			
@@ -119,7 +135,11 @@ func action_FSM():
 				item.global_position = interact_box.get_child(0).global_position
 				held_item = item
 				actionState = holdingState
-			elif Input.is_action_just_pressed("shoot"):
+			elif Input.is_action_just_pressed("interact") and not reachable_interactables.is_empty():
+				player_restrict = true
+				reachable_interactables.pop_front().interact(self)
+				actionState = nullstate
+			elif Input.is_action_just_pressed("shoot") and shooting_bool:
 				actionState = shootingState
 			#endregion
 		holdingState:
@@ -173,7 +193,10 @@ func _on_interact_box_area_entered(area: Area2D) -> void:
 	if area_script != null: 
 		if area_script.get_global_name() == "brick":
 			reachable_items.append(area)
+		elif "interactable" in area:
+			reachable_interactables.append(area)
 
 
 func _on_interact_box_area_exited(area: Area2D) -> void:
 	reachable_items.erase(area)
+	reachable_interactables.erase(area)

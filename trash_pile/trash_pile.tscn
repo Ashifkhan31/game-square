@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn0bntkp54til"]
+
+[ext_resource type="Script" uid="uid://c1iqtewqgkqpm" path="res://trash_pile/trash_pile.gd" id="1_52n3n"]
+[ext_resource type="Texture2D" uid="uid://btow06hlsdac5" path="res://assets/trash_pile.png" id="2_52n3n"]
+[ext_resource type="PackedScene" uid="uid://dafr6h73f38d0" path="res://dialog-box/dialog-box.tscn" id="2_w053i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13peo"]
+size = Vector2(40, 40)
+
+[node name="trash-pile" type="Area2D"]
+script = ExtResource("1_52n3n")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("2_52n3n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_13peo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="dialog-box" parent="CanvasLayer" instance=ExtResource("2_w053i")]
+visible = false
