@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cswqbmhnaa"]
+[gd_scene load_steps=4 format=3 uid="uid://cswqbmhnaa"]
 
 [ext_resource type="Script" uid="uid://blfcanrnexx2n" path="res://old_man/old_man.gd" id="1_etf5w"]
-[ext_resource type="PackedScene" uid="uid://dafr6h73f38d0" path="res://dialog-box/dialog-box.tscn" id="2_w053i"]
 [ext_resource type="Texture2D" uid="uid://b3dtd1iy7hjx3" path="res://assets/old-man.png" id="3_4r7rh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13peo"]
@@ -27,6 +26,3 @@ position = Vector2(-2, 1.5)
 shape = SubResource("RectangleShape2D_13peo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="dialog-box" parent="CanvasLayer" instance=ExtResource("2_w053i")]
-visible = false

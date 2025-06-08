@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://33axj4rhqhhx"]
+[gd_scene load_steps=7 format=4 uid="uid://33axj4rhqhhx"]
 
 [ext_resource type="PackedScene" uid="uid://rkildea1qlbc" path="res://tilemap/tile_map_layer.tscn" id="1_lb02r"]
 [ext_resource type="PackedScene" uid="uid://bjbai8tseys8f" path="res://gate/gate.tscn" id="2_k22l1"]
 [ext_resource type="PackedScene" uid="uid://c2bdsgojavyyu" path="res://camera/camera.tscn" id="2_pwcb5"]
 [ext_resource type="PackedScene" uid="uid://bvryicewqna3x" path="res://buttons/square_wall_button.tscn" id="3_anpio"]
 [ext_resource type="PackedScene" uid="uid://cl1r6oph1w4fg" path="res://buttons/square_floor_button.tscn" id="4_pwcb5"]
+[ext_resource type="PackedScene" uid="uid://cw3ck33awjsic" path="res://key/key.tscn" id="6_ae40p"]
 
 [node name="room6" type="Node2D"]
 
@@ -40,3 +41,6 @@ wait_time = 3.0
 position = Vector2(420, 60)
 rotation = 1.5708
 wait_time = 3.0
+
+[node name="key" parent="." instance=ExtResource("6_ae40p")]
+position = Vector2(399, 557)

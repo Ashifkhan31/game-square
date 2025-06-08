@@ -2,9 +2,10 @@ extends CharacterBody2D
 
 class_name player
 
+@export var gameover: NodePath
+
 var bullet_scene = preload("res://bullet/bullet.tscn")
 
-var lives = 3
 var speed: float = 235
 var facing_direction: Vector2 = Vector2.DOWN
 
@@ -21,7 +22,7 @@ var held_item = null
 var player_restrict = false
 
 var shooting_bool = false
-var teleport_bool = false 
+var teleport_bool = false
 
 var invincible = false
 var invincible_timer: Timer
@@ -42,6 +43,7 @@ enum
 }
 
 func _ready() -> void:
+	$"CanvasLayer/health-bar".gameover = get_node(gameover)
 	invincible_timer = Timer.new()
 	invincible_timer.wait_time = 1
 	invincible_timer.connect("timeout", end_invincibility)
@@ -49,8 +51,7 @@ func _ready() -> void:
 
 func get_damage():
 	if not invincible:
-		lives -= 1
-		print("life left: ",lives)
+		$"CanvasLayer/health-bar".remove_a_life(self)
 		$AnimationPlayer.play("flash")
 		invincible_timer.start()
 		invincible = true
@@ -191,7 +192,7 @@ func _on_teleport_box_body_exited(body: Node2D) -> void:
 func _on_interact_box_area_entered(area: Area2D) -> void:
 	var area_script = area.get_script()
 	if area_script != null: 
-		if area_script.get_global_name() == "brick":
+		if area_script.get_global_name() == "brick" or area_script.get_global_name() == "key":
 			reachable_items.append(area)
 		elif "interactable" in area:
 			reachable_interactables.append(area)

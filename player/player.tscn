@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://k42toh85ydws"]
+[gd_scene load_steps=10 format=3 uid="uid://k42toh85ydws"]
 
 [ext_resource type="Texture2D" uid="uid://dduisb5bdxmjf" path="res://assets/player.png" id="1_636jk"]
 [ext_resource type="Script" uid="uid://b351ngepgjwrs" path="res://player/player.gd" id="1_by6f8"]
+[ext_resource type="PackedScene" uid="uid://dtr1esmfdut78" path="res://UI/health_bar.tscn" id="3_g1dw6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_by6f8"]
 size = Vector2(24, 24)
@@ -77,6 +78,10 @@ shape = SubResource("RectangleShape2D_b5ucr")
 libraries = {
 &"": SubResource("AnimationLibrary_yw30f")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="health-bar" parent="CanvasLayer" instance=ExtResource("3_g1dw6")]
 
 [connection signal="body_entered" from="teleport_box" to="." method="_on_teleport_box_body_entered"]
 [connection signal="body_exited" from="teleport_box" to="." method="_on_teleport_box_body_exited"]

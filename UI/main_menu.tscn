@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt8p7a0dx3gr5"]
+
+[ext_resource type="Script" uid="uid://bv8ecp2p3ebv1" path="res://UI/main_menu.gd" id="1_oa53l"]
+[ext_resource type="Texture2D" uid="uid://dcsvgmf7btslu" path="res://assets/bullet.png" id="2_tk8dj"]
+
+[node name="main-menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oa53l")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.286275, 0.286275, 0.376471, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tk8dj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = -520
+theme_override_constants/margin_top = 500
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Start"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 485.0
+offset_top = 205.0
+offset_right = 738.0
+offset_bottom = 260.0
+theme_override_font_sizes/font_size = 40
+text = "Square game"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 41.0
+offset_right = 61.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 15
+text = "Controls:
+Up, Down, Right, Left - Movement
+Z - Interact
+X - Teleport
+C - Shoot
+Esc - Menu"
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Button2" to="." method="_on_button_2_button_down"]

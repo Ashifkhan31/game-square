@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtr1esmfdut78"]
+
+[ext_resource type="Script" uid="uid://clfh2jll4qel6" path="res://UI/health_bar.gd" id="1_6f3ms"]
+
+[node name="health-bar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6f3ms")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.027
+anchor_top = 0.017
+anchor_right = 0.027
+anchor_bottom = 0.017
+offset_left = 0.4
+offset_top = 0.119999
+offset_right = 32.4
+offset_bottom = 20.12
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer"]
+self_modulate = Color(0.901961, 0.0980392, 0.2, 1)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer2"]
+self_modulate = Color(0.901961, 0.0980392, 0.2, 1)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer3"]
+self_modulate = Color(0.901961, 0.0980392, 0.2, 1)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
